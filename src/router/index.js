@@ -10,17 +10,17 @@ const routes = [
       {
         path: 'page1',
         name: 'page1',
-        component: () => import('../views/page1/Page1.vue'),
+        component: () => import('../views/page1/index.vue'),
       },
       {
         path: '/page2',
         name: 'page2',
-        component: () => import('../views/page2/Page2.vue'), // 改为导入实际组件文件
+        component: () => import('../views/page2/index.vue'), // 改为导入实际组件文件
       },
       {
         path: '/page3',
         name: 'page3',
-        component: () => import('../views/page3/Page3.vue'), // 改为导入实际组件文件
+        component: () => import('../views/page3/index.vue'), // 改为导入实际组件文件
       },
     ],
   },
