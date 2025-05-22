@@ -9,8 +9,7 @@ const { role } = storeToRefs(roleStore)
 <template>
   <div>当前角色：{{ role }}</div>
   <div>访客和管理员都能看见</div>
-  <div>只有管理员能看见</div>
-  <div>只有访客能看见</div>
+  <div v-role="role">只有管理员能看见</div>
 </template>
 
 <style lang='less' scoped></style>
