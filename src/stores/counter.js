@@ -10,3 +10,12 @@ export const useCounterStore = defineStore('counter', () => {
 
   return { count, doubleCount, increment }
 })
+
+export const useRoleStore = defineStore('role', () => {
+  const role = ref('admin')
+  function changeRole() {
+    role.value = 'user'
+  }
+
+  return { role, changeRole }
+})
