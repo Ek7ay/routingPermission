@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue'
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView, useRouter, useRoute } from 'vue-router'
 import {
   ElContainer,
   ElHeader,
@@ -11,16 +11,21 @@ import {
   ElBreadcrumb,
   ElBreadcrumbItem
 } from 'element-plus'
-import { useRoute } from 'vue-router'
 
+const router = useRouter()
 const route = useRoute()
+
+// 获取路由配置中的菜单项
+const menuItems = computed(() => {
+  // 获取根路由的children
+  const rootRoute = router.options.routes.find(route => route.path === '/')
+  return rootRoute?.children || []
+})
+
+// 生成页面标题
 const currentPageName = computed(() => {
-  const pageMap = {
-    '/page1': '页面1',
-    '/page2': '页面2',
-    '/page3': '页面3'
-  }
-  return pageMap[route.path] || '当前页面'
+  const currentRoute = menuItems.value.find(item => item.path === route.path.slice(1))
+  return currentRoute ? currentRoute.name : '当前页面'
 })
 </script>
 
@@ -41,15 +46,9 @@ const currentPageName = computed(() => {
 
       <el-container>
         <el-aside width="200px" class="menu-container">
-          <el-menu router default-active="/" class="side-menu">
-            <el-menu-item index="/page1">
-              <template #title>页面1</template>
-            </el-menu-item>
-            <el-menu-item index="/page2">
-              <template #title>页面2</template>
-            </el-menu-item>
-            <el-menu-item index="/page3">
-              <template #title>页面3</template>
+          <el-menu router :default-active="route.path" class="side-menu">
+            <el-menu-item v-for="item in menuItems" :key="item.path" :index="'/' + item.path">
+              <template #title>{{ item.name }}</template>
             </el-menu-item>
           </el-menu>
         </el-aside>
