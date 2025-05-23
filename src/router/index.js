@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { setupRouteGuard } from './permission'
 
 const pages = import.meta.glob('../views/**/index.vue')
 
@@ -33,5 +34,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 })
+
+setupRouteGuard(router)
 
 export default router
