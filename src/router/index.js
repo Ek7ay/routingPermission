@@ -28,6 +28,15 @@ const routes = [
     redirect: '/page1',
     children: generateRoutes(),
   },
+  {
+    path: '/404',
+    name: '404',
+    component: () => import('../views/error/404.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/404'
+  }
 ]
 
 const router = createRouter({
