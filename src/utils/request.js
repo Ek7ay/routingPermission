@@ -1,8 +1,8 @@
 import axios from 'axios'
-
+import { MediaSeeding_Api } from "@/constant/api";
 // 创建axios实例
 const service = axios.create({
-  baseURL: 'https://xapi-dev.lenovo.com', // 修改为外部API地址
+  baseURL: MediaSeeding_Api.api, // 修改为外部API地址
   timeout: 5000 // 请求超时时间
 })
 

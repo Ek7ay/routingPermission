@@ -16,21 +16,13 @@ const getDefaultTempApi = async () => {
     confName: '系统默认配置',
   }
   const res = await getDefaultTemp(params)
-  console.log('接口返回数据：', res)
   responseData.value = res.data
 }
 
 onMounted(() => {
   getDefaultTempApi()
+  console.log(import.meta.env)
 })
 </script>
 
-<style scoped>
-pre {
-  background: #f5f5f5;
-  padding: 15px;
-  border-radius: 4px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-</style>
+<style scoped></style>
