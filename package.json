@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:PRC": "vite --mode PRC",
     "build": "vite build",
+    "build:PRC": "vite build --mode PRC",
     "preview": "vite preview",
     "lint": "eslint . --fix",
     "format": "prettier --write src/"

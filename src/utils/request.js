@@ -11,7 +11,7 @@ service.interceptors.request.use(
   config => {
     // 在发送请求之前做些什么
     // 例如：添加token
-    const token = localStorage.getItem('token') || 'eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3NDgyMzM0NDEsImN1c3RvbWVyIjoiY2FveXAyIn0.qSw_dRDmIKCaj3dIQDTwm_HI2f292QWKmuaHs8pUDMxr46-PKXgvCtYbioOwB3Tsl9kgCY54jTcqXem3IICr8A'
+    const token = localStorage.getItem('token') || 'eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE3NDgzMTM0NTgsImN1c3RvbWVyIjoiY2FveXAyIn0.smplJ-Q6BxNYw2JM4yCQzsyPUiG4rKe8LUsq0XedBUwIS-HketmpL3UuAVtYvK_VfcQAMjzvWuOaRQ3erXcpIA'
     if (token) {
       config.headers['token'] = `${token}`
     }
